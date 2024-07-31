@@ -5,7 +5,7 @@ import view.MenuAluno;
 import view.MenuPrincipal;
 
 public class Principal {
-//teste
+
 	static CadastroAluno cadAluno;
 	
 	public static void main(String[] args) {
