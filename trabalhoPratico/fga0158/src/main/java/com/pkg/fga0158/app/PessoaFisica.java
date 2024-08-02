@@ -2,7 +2,7 @@ package app;
 
 public class PessoaFisica {
 	
-	private String nome, 
+	public String nome, 
 	               cpf, 
 	               email;
 	

@@ -1,3 +1,5 @@
+package com.pkg.Principal;
+
 import javax.swing.JOptionPane;
 
 import cadastros.CadastroAluno;
