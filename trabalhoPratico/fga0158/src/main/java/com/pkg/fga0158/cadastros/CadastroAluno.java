@@ -15,23 +15,12 @@ public class CadastroAluno {
 	}
 	
 	public int cadastrarAluno(Aluno a) {
-            try {
-                
-            
-                if(a.nome == ""){
-                
-                throw new Exception("CampoEmBrancoException");
-                }
+  
 		boolean cadastrou = alunos.add(a);
 		if (cadastrou) {
 			numAlunos = alunos.size();
 		}
                 
-                } catch (Exception e) {
-                    System.out.println("-----------------------------------------------");
-                    e.printStackTrace();
-            }
-            
 		return numAlunos;
 	}
 	
