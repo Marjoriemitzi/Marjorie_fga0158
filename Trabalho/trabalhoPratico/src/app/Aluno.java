@@ -2,7 +2,7 @@ package app;
 
 public class Aluno extends PessoaFisica{
 
-	String matricula, 
+	private String matricula, 
 	       curso;
 	
 	public Aluno(String nome, String cpf, String email, String matricula, String curso) {
@@ -25,7 +25,10 @@ public class Aluno extends PessoaFisica{
 	}
 	
 	public String toString() {
-		String resposta = super.toString();
+		String resposta = "ALUNO\n";
+		resposta += "NOME: " + nome + '\n';
+		resposta += "CPF: " + cpf + '\n'; 
+		resposta += "EMAIL: " + email + '\n';
 		resposta += "MATRICULA: " + matricula + '\n';
 		resposta += "CURSO: " + curso + '\n';
 		return resposta;

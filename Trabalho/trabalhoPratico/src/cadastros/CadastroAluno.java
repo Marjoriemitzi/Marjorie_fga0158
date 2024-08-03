@@ -15,12 +15,10 @@ public class CadastroAluno {
 	}
 	
 	public int cadastrarAluno(Aluno a) {
-  
 		boolean cadastrou = alunos.add(a);
 		if (cadastrou) {
 			numAlunos = alunos.size();
 		}
-                
 		return numAlunos;
 	}
 	
@@ -50,6 +48,10 @@ public class CadastroAluno {
 		}
 		return resposta;
 	}
+	
+	public List<Aluno> listarAlunos() {
+        return new ArrayList<Aluno>(alunos);
+    }
 }
 
 

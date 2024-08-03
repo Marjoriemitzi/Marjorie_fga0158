@@ -2,7 +2,7 @@ package app;
 
 public class PessoaFisica {
 	
-	public String nome, 
+	protected String nome, 
 	               cpf, 
 	               email;
 	
@@ -25,7 +25,7 @@ public class PessoaFisica {
 	}
 	
 	public String toString() {
-		String resposta = super.toString() + '\n';
+		String resposta = "\n";
 		resposta += "NOME: " + nome + '\n';
 		resposta += "CPF: " + cpf + '\n'; 
 		resposta += "EMAIL: " + email + '\n';

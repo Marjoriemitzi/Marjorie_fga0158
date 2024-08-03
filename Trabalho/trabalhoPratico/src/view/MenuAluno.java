@@ -1,8 +1,11 @@
 package view;
 
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import app.Aluno;
+
 import cadastros.CadastroAluno;
 
 public class MenuAluno {
@@ -42,6 +45,7 @@ public class MenuAluno {
 				+ "2 - Pesquisar aluno\n"
 				+ "3 - Atualizar aluno\n"
 				+ "4 - Remover aluno\n"
+				+ "5 - Listar alunos\n"
 				+ "0 - Voltar para menu anterior";
 		
 		int opcao=-1;
@@ -79,6 +83,15 @@ public class MenuAluno {
 					JOptionPane.showMessageDialog(null, "Aluno removido do cadastro");
 					System.gc();
 				}
+				
+			case 5:
+				List<Aluno> alunos = cadAluno.listarAlunos();
+                StringBuilder sb = new StringBuilder();
+                for (Aluno al : alunos) {
+                    sb.append(al.toString()).append("\n");
+                }
+                JOptionPane.showMessageDialog(null, sb.toString());
+                break;
 
 			default:
 				break;
