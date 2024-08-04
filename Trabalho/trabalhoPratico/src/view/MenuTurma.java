@@ -52,12 +52,12 @@ public class MenuTurma {
         String txt = "Informe a opção desejada \n"
                 + "1 - Cadastrar turma\n"
                 + "2 - Pesquisar turma\n"
-				+ "3 - Atualizar turma\n"
-				+ "4 - Remover turma\n"
+                + "3 - Atualizar turma\n"
+                + "4 - Remover turma\n"
                 + "5 - Matricular aluno em turma\n"
                 + "6 - Imprimir lista de presença\n"
                 + "0 - Voltar para menu anterior";
-        
+
         int opcao = -1;
         do {
             String strOpcao = JOptionPane.showInputDialog(txt);
@@ -73,15 +73,15 @@ public class MenuTurma {
                     break;
 
                 case 2:
-                	String codigoT = lerCodigo();
+                    String codigoT = lerCodigo();
                     Turma t = cadTurma.pesquisarTurma(codigoT);
                     if (t != null) {
-                    	JOptionPane.showMessageDialog(null, t.toString());
+                        JOptionPane.showMessageDialog(null, t.toString());
                     }
                     break;
-                    
+
                 case 3:
-                	codigoT = lerCodigo();
+                    codigoT = lerCodigo();
                     Turma turmaExistente = cadTurma.pesquisarTurma(codigoT);
                     if (turmaExistente != null) {
                         Turma novaTurmaAtualizada = dadosNovaTurma(cadDisciplina, cadProfessor);
@@ -97,7 +97,7 @@ public class MenuTurma {
                         JOptionPane.showMessageDialog(null, "Turma não encontrada!");
                     }
                     break;
-                    
+
                 case 4:
                     codigoT = lerCodigo();
                     turmaExistente = cadTurma.pesquisarTurma(codigoT);
@@ -112,14 +112,14 @@ public class MenuTurma {
                         JOptionPane.showMessageDialog(null, "Turma não encontrada!");
                     }
                     break;
-                    
+
                 case 5:
                     String codigoTurma = lerCodigo();
                     Turma turma = cadTurma.pesquisarTurma(codigoTurma);
                     if (turma != null) {
                         Aluno aluno = lerAluno(cadAluno);
                         if (aluno != null) {
-                            turma.matricularAluno(aluno);
+                            cadTurma.matricularAlunoEmTurma(aluno, turma);
                             JOptionPane.showMessageDialog(null, "Aluno matriculado com sucesso!");
                         }
                     } else {
@@ -128,10 +128,11 @@ public class MenuTurma {
                     break;
 
                 case 6:
-                    codigoTurma = lerCodigo();
-                    turmaExistente = cadTurma.pesquisarTurma(codigoTurma);
+                    codigoT = lerCodigo();
+                    turmaExistente = cadTurma.pesquisarTurma(codigoT);
                     if (turmaExistente != null) {
-                        JOptionPane.showMessageDialog(null, turmaExistente.toString());
+                        String listaPresenca = turmaExistente.imprimirListaPresenca();
+                        JOptionPane.showMessageDialog(null, listaPresenca);
                     } else {
                         JOptionPane.showMessageDialog(null, "Turma não encontrada!");
                     }

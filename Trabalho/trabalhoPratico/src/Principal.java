@@ -11,10 +11,10 @@ public class Principal {
 	static CadastroTurma cadTurma;
 	
 	public static void main(String[] args) {
-		cadAluno = new CadastroAluno();
+		cadTurma = new CadastroTurma();
+		cadAluno = new CadastroAluno(cadTurma);
 		cadProfessor = new CadastroProfessor();
 		cadDisciplina = new CadastroDisciplina();
-		cadTurma = new CadastroTurma();
 		
 		int opcao = 0; 
 		

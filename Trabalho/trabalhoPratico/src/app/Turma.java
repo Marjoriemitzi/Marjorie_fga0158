@@ -37,16 +37,27 @@ public class Turma {
         alunos.add(aluno);
     }
     
-    public String toString() {
-    	StringBuilder sb = new StringBuilder();
-        sb.append("Código da Turma: ").append(codigo).append("\n")
-          .append("Disciplina: ").append(disciplina.getNome()).append("\n")
-          .append("Professor: ").append(professor.getNome()).append("\n")
-          .append("Alunos:\n");
+    public void removerAluno(Aluno aluno) {
+        alunos.remove(aluno);
+    }
+    
+    public String imprimirListaPresenca() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Disciplina: ").append(disciplina.getNome()).append("\n");
+        sb.append("Professor: ").append(professor.getNome()).append("\n");
+        sb.append("Código da Turma: ").append(codigo).append("\n");
+        sb.append("Lista de Alunos:\n");
+
         for (Aluno aluno : alunos) {
-            sb.append(aluno.getMatricula()).append(" - ").append(aluno.getNome()).append("\n");
+            sb.append("Matrícula: ").append(aluno.getMatricula()).append(", Nome: ").append(aluno.getNome()).append("\n");
         }
+
         return sb.toString();
+    }
+
+    @Override
+    public String toString() {
+        return "Codigo da Turma:" + codigo;
     }
 	
 }
