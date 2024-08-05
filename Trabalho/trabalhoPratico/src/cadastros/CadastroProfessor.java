@@ -3,6 +3,8 @@ package cadastros;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import app.Professor;
 
 public class CadastroProfessor {
@@ -15,11 +17,18 @@ public class CadastroProfessor {
 	}
 	
 	public int cadastrarProfessor(Professor p) {
-		boolean cadastrou = professores.add(p);
-		if (cadastrou) {
-			numProfs = professores.size();
-		}
-		return numProfs;
+		if (p.validarProfessor()) {
+			boolean cadastrou = professores.add(p);
+			if (cadastrou) {
+				numProfs = professores.size();
+			}
+			return numProfs;
+		}else {
+    		JOptionPane.showMessageDialog(null, "Professor não cadastrado.\n"
+    				+ "Preencha os campos em branco!");
+    		 return numProfs;
+    	}
+		
 	}
 	
 	public Professor pesquisarProfessor(String matriculaProfessor) {

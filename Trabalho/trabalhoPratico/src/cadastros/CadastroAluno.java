@@ -3,6 +3,8 @@ package cadastros;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import app.Aluno;
 
 public class CadastroAluno {
@@ -17,11 +19,17 @@ public class CadastroAluno {
     }
 
     public int cadastrarAluno(Aluno a) {
-        boolean cadastrou = alunos.add(a);
-        if (cadastrou) {
-            numAlunos = alunos.size();
-        }
-        return numAlunos;
+    	if (a.validarAluno()) {
+    		boolean cadastrou = alunos.add(a);
+            if (cadastrou) {
+                numAlunos = alunos.size();
+            }
+            return numAlunos;
+    	} else {
+    		JOptionPane.showMessageDialog(null, "Aluno não cadastrado.\n"
+    				+ "Preencha os campos em branco!");
+    		return numAlunos;
+    	}
     }
 
     public Aluno pesquisarAluno(String matriculaAluno) {

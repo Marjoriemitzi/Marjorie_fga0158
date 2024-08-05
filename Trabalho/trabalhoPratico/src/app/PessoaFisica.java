@@ -12,15 +12,15 @@ public class PessoaFisica {
 		this.email = email;
 	}
 
-	public final String getNome() {
+	public String getNome() {
 		return nome;
 	}
 
-	public final String getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public final String getEmail() {
+	public String getEmail() {
 		return email;
 	}
 	

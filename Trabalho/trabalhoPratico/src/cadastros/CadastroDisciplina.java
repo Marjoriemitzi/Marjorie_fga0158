@@ -3,6 +3,8 @@ package cadastros;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import app.Disciplina;
 
 public class CadastroDisciplina {
@@ -15,11 +17,18 @@ public class CadastroDisciplina {
 	}
 	
 	public int cadastrarDisciplina(Disciplina d) {
-		boolean cadastrou = disciplinas.add(d);
-		if (cadastrou) {
-			numDisciplinas = disciplinas.size();
+		if(d.validarDisciplina()) {
+			boolean cadastrou = disciplinas.add(d);
+			if (cadastrou) {
+				numDisciplinas = disciplinas.size();
+			}
+			return numDisciplinas;
+		} else {
+			JOptionPane.showMessageDialog(null, "Disciplina não cadastrada.\n"
+    				+ "Preencha os campos em branco!");
+    		 return numDisciplinas;
 		}
-		return numDisciplinas;
+		
 	}
 	
 	public Disciplina pesquisarDisciplina(String id) {

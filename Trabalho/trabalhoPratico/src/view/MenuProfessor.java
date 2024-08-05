@@ -4,12 +4,13 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import app.CampoEmBrancoException;
 import app.Professor;
 import cadastros.CadastroProfessor;
 
 public class MenuProfessor {
 
-	public static Professor dadosNovoProfessor() {
+	public static Professor dadosNovoProfessor() throws CampoEmBrancoException {
 		String nome = lerNome();
 		String cpf = lerCPF();
 		String email = lerEmail();
@@ -38,7 +39,7 @@ public class MenuProfessor {
 		return JOptionPane.showInputDialog("Informe a formação do professor: ");
 	}
 	
-	public static void menuProfessor(CadastroProfessor cadProfessor) {
+	public static void menuProfessor(CadastroProfessor cadProfessor) throws CampoEmBrancoException {
 		String txt = "Informe a opção desejada \n"
 				+ "1 - Cadastrar professor\n"
 				+ "2 - Pesquisar professor\n"

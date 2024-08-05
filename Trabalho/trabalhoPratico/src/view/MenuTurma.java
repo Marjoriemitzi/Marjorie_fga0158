@@ -7,7 +7,7 @@ import cadastros.*;
 
 public class MenuTurma {
 
-    public static Turma dadosNovaTurma(CadastroDisciplina cadDisciplina, CadastroProfessor cadProfessor) {
+    public static Turma dadosNovaTurma(CadastroDisciplina cadDisciplina, CadastroProfessor cadProfessor) throws CampoEmBrancoException, DisciplinaNaoAtribuidaException, ProfessorNaoAtribuidoException {
         String codigo = lerCodigo();
         Disciplina disciplina = lerDisciplina(cadDisciplina);
         Professor professor = lerProfessor(cadProfessor);
@@ -31,7 +31,7 @@ public class MenuTurma {
     }
 
     private static Professor lerProfessor(CadastroProfessor cadProfessor) {
-        String idProfessor = JOptionPane.showInputDialog("Informe o ID do professor: ");
+        String idProfessor = JOptionPane.showInputDialog("Informe a Matricula do professor: ");
         Professor professor = cadProfessor.pesquisarProfessor(idProfessor);
         if (professor == null) {
             JOptionPane.showMessageDialog(null, "Professor não encontrado!");
@@ -40,7 +40,7 @@ public class MenuTurma {
     }
 
     private static Aluno lerAluno(CadastroAluno cadAluno) {
-        String idAluno = JOptionPane.showInputDialog("Informe o ID do aluno: ");
+        String idAluno = JOptionPane.showInputDialog("Informe a Matricula do aluno: ");
         Aluno aluno = cadAluno.pesquisarAluno(idAluno);
         if (aluno == null) {
             JOptionPane.showMessageDialog(null, "Aluno não encontrado!");
@@ -48,7 +48,7 @@ public class MenuTurma {
         return aluno;
     }
 
-    public static void menuTurma(CadastroTurma cadTurma, CadastroDisciplina cadDisciplina, CadastroProfessor cadProfessor, CadastroAluno cadAluno) {
+    public static void menuTurma(CadastroTurma cadTurma, CadastroDisciplina cadDisciplina, CadastroProfessor cadProfessor, CadastroAluno cadAluno) throws CampoEmBrancoException, DisciplinaNaoAtribuidaException, ProfessorNaoAtribuidoException {
         String txt = "Informe a opção desejada \n"
                 + "1 - Cadastrar turma\n"
                 + "2 - Pesquisar turma\n"
@@ -119,8 +119,9 @@ public class MenuTurma {
                     if (turma != null) {
                         Aluno aluno = lerAluno(cadAluno);
                         if (aluno != null) {
-                            cadTurma.matricularAlunoEmTurma(aluno, turma);
-                            JOptionPane.showMessageDialog(null, "Aluno matriculado com sucesso!");
+                            if(cadTurma.matricularAlunoEmTurma(aluno, turma)) {
+                            	JOptionPane.showMessageDialog(null, "Aluno matriculado com sucesso!");
+                            }
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "Turma não encontrada!");

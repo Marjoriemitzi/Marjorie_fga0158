@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.JOptionPane;
+
 import app.*;
 
 public class CadastroTurma {
@@ -19,11 +21,17 @@ public class CadastroTurma {
     }
 
     public int cadastrarTurma(Turma t) {
-        boolean cadastrou = turmas.add(t);
-        if (cadastrou) {
-            numTurmas = turmas.size();
-        }
-        return numTurmas;
+    	if(t.validarTurma()) {
+    		boolean cadastrou = turmas.add(t);
+            if (cadastrou) {
+                numTurmas = turmas.size();
+            }
+            return numTurmas;
+    	} else {
+    		JOptionPane.showMessageDialog(null, "Turma não cadastrada.\n"
+    				+ "Preencha os campos em branco!");
+    		return numTurmas;
+    	}
     }
 
     public Turma pesquisarTurma(String codigoTurma) {
@@ -57,9 +65,15 @@ public class CadastroTurma {
         return false;
     }
 
-    public void matricularAlunoEmTurma(Aluno aluno, Turma turma) {
-        turma.matricularAluno(aluno);
-        alunoTurmasMap.computeIfAbsent(aluno, k -> new ArrayList<>()).add(turma);
+    public boolean matricularAlunoEmTurma(Aluno aluno, Turma turma) {
+    	if(turma.getAlunos().contains(aluno)) {
+    		JOptionPane.showMessageDialog(null, "O aluno já está matriculado nesta turma.");
+    		return false;
+    	} else {
+    		turma.matricularAluno(aluno);
+    		alunoTurmasMap.computeIfAbsent(aluno, k -> new ArrayList<>()).add(turma);
+    		return true;
+    	}
     }
 
     public void removerAlunoDeTodasTurmas(Aluno aluno) {

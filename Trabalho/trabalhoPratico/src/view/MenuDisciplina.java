@@ -4,11 +4,12 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import app.CampoEmBrancoException;
 import app.Disciplina;
 import cadastros.CadastroDisciplina;
 
 public class MenuDisciplina {
-	public static Disciplina dadosNovoDisciplina() {
+	public static Disciplina dadosNovoDisciplina() throws CampoEmBrancoException {
 		String nome = lerNome();
 		String id = lerId();
 		return new Disciplina(nome, id);
@@ -22,7 +23,7 @@ public class MenuDisciplina {
 		return JOptionPane.showInputDialog("Informe o nome da disciplina: ");
 	}
 	
-	public static void menuDisciplina(CadastroDisciplina cadDisciplina) {
+	public static void menuDisciplina(CadastroDisciplina cadDisciplina) throws CampoEmBrancoException {
 		String txt = "Informe a opção desejada \n"
 				+ "1 - Cadastrar disciplina\n"
 				+ "2 - Pesquisar disciplina\n"
