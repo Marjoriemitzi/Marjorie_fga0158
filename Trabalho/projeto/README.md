@@ -20,6 +20,7 @@ Podendo ainda pesquisa, remover, atualizar e listar cada um deles.
 O programa e inicializado a partir de um Menu onde o usuário tem opções de escolhas para executar as tarefas.
 
 O diagrama de classes abaixo representa parte do que já está implementado. 
+Link para melhor resolução: https://miro.com/welcomeonboard/RlRLcGFCejhyaFR0RFJvTk5MSklEelhTTk9FWXdJNmtzckJYbjVSRmJjN21wTHQ3VmdFbHdNSTdBVUw2TGlxOHwzNDU4NzY0NTk2MTgzOTExNzI5fDI=?share_link_id=910562466756
 ![Diagrama de classes](Diagrama_de_classe_UML_projeto.jpg)
 
 
