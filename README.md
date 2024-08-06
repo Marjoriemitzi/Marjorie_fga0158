@@ -25,7 +25,7 @@ exemplo, o sistema é responsável por cadastrar todos os alunos e professores,
 todas as disciplinas, todas as turmas de cada disciplina e, por fim, todas as
 salas de aulas. 
 
-Esse sistem deve também ser capaz de criar turmas para cada disciplina e, para
+Esse sistema deve também ser capaz de criar turmas para cada disciplina e, para
 cada turma, deve ser capaz de associar um professor e matricular os alunos,
 ambos já existentes no cadastro. Para cada turma, o sistema deverá ser capaz de
 imprimir a lista de presença que contenha, obrigatoriamente, o nome da
