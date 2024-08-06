@@ -5,6 +5,7 @@ OO - Orientação por Objetos
 Prof. André Luiz Peron Martins Lanna 
 
 Componentes do Grupo:
+
 Nome: João Marcos Moraes de Andrade nº222006113
 Nome: Marjorie Mitzi Cavalcante Rodrigues nº231039140
 
@@ -28,7 +29,7 @@ exceções Campo em Branco, Professor e disciplina não atribuidas dentro da fun
 
 ## Exemplos:
 Exemplos ja cadastrados dentro do programa as turmas t1 e t2 com seus respectivos atributos.
-Os alunos dados abaixo podem ser matriculados em uma turma.
+Os dados dos alunos abaixo podem ser matriculados em uma turma.
 
 ## Disciplina:
 Disciplina("Matemática", "11");
