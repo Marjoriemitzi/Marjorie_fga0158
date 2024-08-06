@@ -20,7 +20,7 @@ Podendo ainda pesquisa, remover, atualizar e listar cada um deles.
 O programa e inicializado a partir de um Menu onde o usuário tem opções de escolhas para executar as tarefas.
 
 O diagrama de classes abaixo representa parte do que já está implementado. 
-![Diagrama de classes](Diagrama_de_classe_UML_projet.jpg)
+![Diagrama de classes](Diagrama_de_classe_UML_projeto.jpg)
 
 
 ## Enunciado:  
