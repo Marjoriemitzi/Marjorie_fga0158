@@ -7,7 +7,7 @@ Prof. André Luiz Peron Martins Lanna
 Componentes do Grupo:
 
 Nomes: 
-João Marcos Moraes de Andrade nº222006113 
+João Marcos Moraes de Andrade nº222006113  
 Marjorie Mitzi Cavalcante Rodrigues nº231039140
 
 #### Trabalho Prático de Orientação por Objetos 
