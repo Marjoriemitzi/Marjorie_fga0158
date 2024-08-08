@@ -6,7 +6,7 @@ Prof. André Luiz Peron Martins Lanna
 
 Componentes do Grupo:
 
-Nomes: 
+Nomes:  
 João Marcos Moraes de Andrade nº222006113  
 Marjorie Mitzi Cavalcante Rodrigues nº231039140
 
