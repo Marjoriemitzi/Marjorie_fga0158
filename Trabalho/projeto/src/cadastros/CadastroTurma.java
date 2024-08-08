@@ -21,17 +21,16 @@ public class CadastroTurma {
     }
 
     public int cadastrarTurma(Turma t) {
-    	if(t.validarTurma()) {
-    		boolean cadastrou = turmas.add(t);
+        if (t.validarTurma()) {
+            boolean cadastrou = turmas.add(t);
             if (cadastrou) {
                 numTurmas = turmas.size();
             }
             return numTurmas;
-    	} else {
-    		JOptionPane.showMessageDialog(null, "Turma não cadastrada.\n"
-    				+ "Preencha os campos em branco!");
-    		return numTurmas;
-    	}
+        } else {
+            JOptionPane.showMessageDialog(null, "Turma não cadastrada.\nPreencha os campos em branco!");
+            return numTurmas;
+        }
     }
 
     public Turma pesquisarTurma(String codigoTurma) {
@@ -65,15 +64,12 @@ public class CadastroTurma {
         return false;
     }
 
-    public boolean matricularAlunoEmTurma(Aluno aluno, Turma turma) {
-    	if(turma.getAlunos().contains(aluno)) {
-    		JOptionPane.showMessageDialog(null, "O aluno já está matriculado nesta turma.");
-    		return false;
-    	} else {
-    		turma.matricularAluno(aluno);
-    		alunoTurmasMap.computeIfAbsent(aluno, k -> new ArrayList<>()).add(turma);
-    		return true;
-    	}
+    public void matricularAlunoEmTurma(Aluno aluno, Turma turma) throws Exception {
+        if (turma.getAlunos().contains(aluno)) {
+            throw new Exception("Aluno já está matriculado nesta turma.");
+        }
+        turma.matricularAluno(aluno);
+        alunoTurmasMap.computeIfAbsent(aluno, k -> new ArrayList<>()).add(turma);
     }
 
     public void removerAlunoDeTodasTurmas(Aluno aluno) {

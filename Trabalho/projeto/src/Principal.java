@@ -10,7 +10,7 @@ public class Principal {
     static CadastroDisciplina cadDisciplina;
     static CadastroTurma cadTurma;
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         try {
             cadTurma = new CadastroTurma();
             cadAluno = new CadastroAluno(cadTurma);
@@ -55,7 +55,7 @@ public class Principal {
         }
     }
 
-    private static void adicionarDadosIniciais() throws CampoEmBrancoException, DisciplinaNaoAtribuidaException, ProfessorNaoAtribuidoException {
+    private static void adicionarDadosIniciais() throws Exception {
         // Criando e cadastrando disciplinas
         Disciplina matematica = new Disciplina("Matemática", "11");
         Disciplina portugues = new Disciplina("Português", "22");

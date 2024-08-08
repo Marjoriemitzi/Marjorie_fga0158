@@ -3,8 +3,6 @@ package app;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 public class Turma {
     private String codigo;
     private Disciplina disciplina;
@@ -12,42 +10,23 @@ public class Turma {
     private List<Aluno> alunos;
 
     public Turma(String codigo, Disciplina disciplina, Professor professor) throws CampoEmBrancoException, DisciplinaNaoAtribuidaException, ProfessorNaoAtribuidoException {
+        this.alunos = new ArrayList<>();
         setCodigo(codigo);
         setDisciplina(disciplina);
         setProfessor(professor);
-        this.alunos = new ArrayList<>();
-        
+    }
+
+    public boolean validarTurma() {
         try {
-        	setCodigo(codigo);
-        } catch(CampoEmBrancoException e) {
-        	System.out.println(e.getMessage());
-            JOptionPane.showMessageDialog(null, "Codigo em branco.");
-        }
-        try {
-        	setDisciplina(disciplina);
-        } catch(DisciplinaNaoAtribuidaException e) {
-        	System.out.println(e.getMessage());
-            JOptionPane.showMessageDialog(null, "Disciplina nao atribuida.");
-        }
-        try {
-        	setProfessor(professor);
-        } catch(ProfessorNaoAtribuidoException e) {
-        	System.out.println(e.getMessage());
-            JOptionPane.showMessageDialog(null, "Professor nao atribuida.");
+            setCodigo(codigo);
+            setDisciplina(disciplina);
+            setProfessor(professor);
+            return true;
+        } catch (CampoEmBrancoException | DisciplinaNaoAtribuidaException | ProfessorNaoAtribuidoException e) {
+            System.out.println(e.getMessage());
+            return false;
         }
     }
-    
-    public boolean validarTurma() {
-	    try {
-	    	setCodigo(codigo);
-	    	setDisciplina(disciplina);
-	    	setProfessor(professor);
-	        return true;
-	    } catch (CampoEmBrancoException | DisciplinaNaoAtribuidaException | ProfessorNaoAtribuidoException e) {
-	        System.out.println(e.getMessage());
-	        return false;
-	    }
-	}
 
     public String getCodigo() {
         return codigo;
@@ -87,7 +66,7 @@ public class Turma {
     }
 
     public void matricularAluno(Aluno aluno) {
-    	alunos.add(aluno); 
+        alunos.add(aluno);
     }
 
     public void removerAluno(Aluno aluno) {

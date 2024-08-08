@@ -7,14 +7,29 @@ import cadastros.*;
 
 public class MenuTurma {
 
-    public static Turma dadosNovaTurma(CadastroDisciplina cadDisciplina, CadastroProfessor cadProfessor) throws CampoEmBrancoException, DisciplinaNaoAtribuidaException, ProfessorNaoAtribuidoException {
-        String codigo = lerCodigo();
-        Disciplina disciplina = lerDisciplina(cadDisciplina);
-        Professor professor = lerProfessor(cadProfessor);
-        if (disciplina != null && professor != null) {
+    public static Turma dadosNovaTurma(CadastroDisciplina cadDisciplina, CadastroProfessor cadProfessor) {
+        try {
+            String codigo = lerCodigo();
+            if (codigo == null || codigo.trim().isEmpty()) {
+                throw new CampoEmBrancoException("O campo 'código' está em branco.");
+            }
+
+            Disciplina disciplina = lerDisciplina(cadDisciplina);
+            if (disciplina == null) {
+                throw new DisciplinaNaoAtribuidaException("A disciplina não foi atribuída.");
+            }
+
+            Professor professor = lerProfessor(cadProfessor);
+            if (professor == null) {
+                throw new ProfessorNaoAtribuidoException("O professor não foi atribuído.");
+            }
+
             return new Turma(codigo, disciplina, professor);
+
+        } catch (CampoEmBrancoException | DisciplinaNaoAtribuidaException | ProfessorNaoAtribuidoException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            return null;
         }
-        return null;
     }
 
     private static String lerCodigo() {
@@ -48,7 +63,7 @@ public class MenuTurma {
         return aluno;
     }
 
-    public static void menuTurma(CadastroTurma cadTurma, CadastroDisciplina cadDisciplina, CadastroProfessor cadProfessor, CadastroAluno cadAluno) throws CampoEmBrancoException, DisciplinaNaoAtribuidaException, ProfessorNaoAtribuidoException {
+    public static void menuTurma(CadastroTurma cadTurma, CadastroDisciplina cadDisciplina, CadastroProfessor cadProfessor, CadastroAluno cadAluno) {
         String txt = "Informe a opção desejada \n"
                 + "1 - Cadastrar turma\n"
                 + "2 - Pesquisar turma\n"
@@ -77,6 +92,8 @@ public class MenuTurma {
                     Turma t = cadTurma.pesquisarTurma(codigoT);
                     if (t != null) {
                         JOptionPane.showMessageDialog(null, t.toString());
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Turma não encontrada!");
                     }
                     break;
 
@@ -119,8 +136,11 @@ public class MenuTurma {
                     if (turma != null) {
                         Aluno aluno = lerAluno(cadAluno);
                         if (aluno != null) {
-                            if(cadTurma.matricularAlunoEmTurma(aluno, turma)) {
-                            	JOptionPane.showMessageDialog(null, "Aluno matriculado com sucesso!");
+                            try {
+                                cadTurma.matricularAlunoEmTurma(aluno, turma);
+                                JOptionPane.showMessageDialog(null, "Aluno matriculado com sucesso!");
+                            } catch (Exception e) {
+                                JOptionPane.showMessageDialog(null, e.getMessage());
                             }
                         }
                     } else {
